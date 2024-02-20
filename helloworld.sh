@@ -6,23 +6,22 @@
 # Purpose:                      Educational
 
 # Declaration of variables
-Food=mangu
-color=brown
+food="mangu"
+color="brown"
 
 # Declaration of functions
-Function display_info() 
-	echo “food: $1”
-	echo “color: $$2”
+display_info() {
+    echo "Food: $1"
+    echo "Color: $2"
 }
 
 # Main
-Echo “Better than mashed potatoes!”
+echo "Better than mashed potatoes!"
 
 # Accessing Variables
-Echo “The $food is that $color.”
+echo "$food is $color."
 
 # Calling a function
-Display_info “$food” “$color”
-
+display_info "$food" "$color"
 
 # End
