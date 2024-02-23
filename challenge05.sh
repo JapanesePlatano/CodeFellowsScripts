@@ -1,24 +1,19 @@
 #!/bin/bash
 
-# Script Name:                  Platano
+# Script Name:                  Ops Challenge - Loops
 # Author:                       Gilbert Collado
-# Date of latest revision:      02/2023/2024
+# Date of latest revision:      02/23/2024
 # Purpose:                      To run a loop
+# Source:                       https://chat.openai.com/share/1256b16c-bdd6-470d-96ef-f42aecc7a317
 
 while true; do
-    # Display running processes
     echo -e "\nRunning processes:"
     ps aux
 
-    # Ask the user for a PID
-    read -p $'\nEnter the PID to kill (or press Ctrl + C to exit): ' pid_to_kill
+    read -p "Enter the PID to kill (or press Ctrl + C to exit): " pid_to_kill
 
-    # Check if the input is a valid integer
-    if [[ $pid_to_kill =~ ^[0-9]+$ ]]; then
-        # Check if the process exists
-        if ps -p "$pid_to_kill" > /dev/null; then
-            # Kill the process
-            kill "$pid_to_kill"
+    if [[ "$pid_to_kill" =~ ^[0-20]+$ ]]; then
+        if kill "$pid_to_kill" 2>/dev/null; then
             echo "Process with PID $pid_to_kill killed."
         else
             echo "No process found with PID $pid_to_kill."
