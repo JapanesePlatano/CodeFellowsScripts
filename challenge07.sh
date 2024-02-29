@@ -4,7 +4,8 @@
 # Author:                       Gilbert Collado
 # Date of latest revision:      02/27/2024
 # Purpose:                      Utilize lshw to extract specific system information
-# Source1:                      https://g.co/gemini/share/c497aa43840f                
+# Source1:                      https://g.co/gemini/share/c497aa43840f   
+# Source2:                      https://github.com/PaulThomas83/repos1             
 
 # Check if script is run as root
 if [ "$(id -u)" -ne 0 ]; then
