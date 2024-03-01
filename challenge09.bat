@@ -24,7 +24,6 @@ PowerShell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-WinEvent -LogNam
 
 echo Done!
 
-
 Operation 1: Get all events from the System log in the last 24 hours and output to file
 
 Operation 2: Get all events of type "Error" from the System log and output to file
