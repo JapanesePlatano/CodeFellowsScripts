@@ -36,7 +36,7 @@ pause
 # Enable File and Printer Sharing
 # Allow ICMP traffic
 # Enable Remote management
-# Remove bloatware
+# Remove bloatware (the names of the apps here can be sustituted for the ones that you want removed)
 # Enable Hyper-V
 # Disable SMBv1
 # Display a message indicating completion
