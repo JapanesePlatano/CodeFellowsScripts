@@ -4,7 +4,6 @@
 -GILBERT COLLADO
 
 ### DESCRIPTION
-##
 
 What is this repo all about?
 
