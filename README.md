@@ -1,4 +1,4 @@
-# ops-201d12-code-challenges
+# CodeFellows Ops201 Scripts
 
 ## Authos
 -GILBERT COLLADO
