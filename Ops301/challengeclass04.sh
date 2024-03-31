@@ -1,6 +1,6 @@
 # Script Name:                  Ops Challenge - Conditionals in Menu Systems
 # Author:                       Gilbert Collado
-# Date of latest revision:      03/27/2024
+# Date of latest revision:      03/28/2024
 # Purpose:                      Create a bash script that launches a menu system asking the user to select an option that meets a condition
 # Source1:                      https://g.co/gemini/share/57ca309a5b5b
 # Source2:                      https://github.com/codefellows/seattle-ops-301d12/blob/main/class-03/challenges/DEMO.md
