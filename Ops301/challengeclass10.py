@@ -3,7 +3,6 @@
 # Date of latest revision:      04/05/2024
 # Purpose:                      Create a script that uses file handling in python
 # Source1:                      https://github.com/codefellows/seattle-ops-301d12/tree/main/class-10/challenges
-# Source2:                      https://github.com/codefellows/seattle-ops-301d12/tree/main/class-10/challenges
 
 # Create a new .txt file
 file_name = 'example.txt'
