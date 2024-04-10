@@ -1,6 +1,6 @@
 # Script Name:                  Ops Challenge - Python File Handling
 # Author:                       Gilbert Collado
-# Date of latest revision:      04/05/2024
+# Date of latest revision:      04/08/2024
 # Purpose:                      Create a script that uses file handling in python
 # Source1:                      https://github.com/codefellows/seattle-ops-301d12/tree/main/class-10/challenges
 # Source2:                      https://g.co/gemini/share/6514345f86aa
