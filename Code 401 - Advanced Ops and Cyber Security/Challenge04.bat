@@ -4,6 +4,7 @@
 # Purpose:                      PowerShell script to configure CIS benchmarks 1.1.5 (L1) and 18.4.3 (L1)
 # Source1:                      https://g.co/gemini/share/9897a6650969
 # Source2:                     
+
 # Function to set the minimum password length
 function Set-MinPasswordLength {
     param (
