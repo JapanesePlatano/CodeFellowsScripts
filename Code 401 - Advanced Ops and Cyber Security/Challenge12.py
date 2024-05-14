@@ -1,7 +1,7 @@
 # Script Name:                  Network Security Tool with Scapy Part 2 of 3
 # Author:                       Gilbert Collado
 # Date of latest revision:      05/14/2024
-# Purpose:                      TCP Port Range Scanner that tests whether a TCP port is open or closed
+# Purpose:                      TCP Port Range Scanner that tests whether a TCP port is open or closed. ICMP ping sweep mode.
 # Source1:                      https://dev.to/zeyu2001/network-scanning-with-scapy-in-python-3off
 # Source2:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/94b03a684510d5e7a1df119d65c1139751492c26/class-12/challenges/DEMO.md
 
