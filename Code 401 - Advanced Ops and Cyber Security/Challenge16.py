@@ -8,6 +8,11 @@
 #!/usr/bin/env python3
 
 import time
+import nltk
+from nltk.tokenize import word_tokenize
+
+# Ensure necessary NLTK data files are downloaded
+nltk.download('punkt')
 
 # Function for Offensive Mode
 def offensive_mode():
@@ -21,12 +26,13 @@ def offensive_mode():
         with open(word_list_path, 'r') as file:
             # Iterate through each line in the file
             for line in file:
-                # Strip any leading/trailing whitespace from the word
-                word = line.strip()
-                # Print the word to the screen
-                print(word)
-                # Pause for the specified delay
-                time.sleep(delay)
+                # Tokenize the line into words
+                words = word_tokenize(line)
+                # Print each word to the screen with delay
+                for word in words:
+                    print(word)
+                    # Pause for the specified delay
+                    time.sleep(delay)
     except FileNotFoundError:
         # Print an error message if the file is not found
         print("File not found. Please check the path and try again.")
@@ -35,6 +41,7 @@ def offensive_mode():
 def defensive_mode():
     # Prompt user for the string to search for
     search_string = input("Enter the string to search for: ")
+    
     # Prompt user for the path to the word list file
     word_list_path = input("Enter the path to the word list file: ")
     
@@ -46,8 +53,10 @@ def defensive_mode():
         with open(word_list_path, 'r') as file:
             # Iterate through each line in the file
             for line in file:
-                # Check if the search string matches the current word
-                if search_string == line.strip():
+                # Tokenize the line into words
+                word_tokens = set(word_tokenize(line.strip()))
+                # Check if the search string is in the tokenized words
+                if search_string in word_tokens:
                     # Set the flag to True if a match is found
                     found = True
                     # Exit the loop early since the string is found
