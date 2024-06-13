@@ -5,6 +5,7 @@
 # Source1:                      https://docs.python.org/3/library/hashlib.html
 # Source2:                      https://www.programiz.com/python-programming/examples/hash-file
 # Source3:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/main/class-32/challenges/DEMO.md
+
 #!/usr/bin/env python3
 
 import os
