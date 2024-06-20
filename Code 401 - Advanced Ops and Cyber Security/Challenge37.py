@@ -4,6 +4,7 @@
 # Purpose:                      This Python script fetches cookies from a target website, sets a custom cookie in a session, sends it to a different site to receive a response, saves the response to an HTML file, and opens it in Firefox while displaying an ASCII art of a cookie monster.
 # Source1:                      https://www.dev2qa.com/how-to-get-set-http-headers-cookies-and-manage-sessions-use-python-requests-module/
 # Source2:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/main/class-37/challenges/DEMO.md
+
 #!/usr/bin/env python3
 
 import requests
