@@ -6,6 +6,7 @@
 # Source2:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/94b03a684510d5e7a1df119d65c1139751492c26/class-38/challenges/DEMO.md
 
 # Import libraries
+
 import requests
 from pprint import pprint
 from bs4 import BeautifulSoup as bs
