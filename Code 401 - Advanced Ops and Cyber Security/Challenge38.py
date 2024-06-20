@@ -1,11 +1,9 @@
-# Script Name:                  Cookie Capture Capades?
+# Script Name:                  XSS Vulnerability Detection with Python
 # Author:                       Gilbert Collado
-# Date of latest revision:      06/18/2024
-# Purpose:                      This Python script fetches cookies from a target website, sets a custom cookie in a session, sends it to a different site to receive a response, saves the response to an HTML file, and opens it in Firefox while displaying an ASCII art of a cookie monster.
-# Source1:                      https://www.dev2qa.com/how-to-get-set-http-headers-cookies-and-manage-sessions-use-python-requests-module/
-# Source2:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/main/class-37/challenges/DEMO.md
-
-#!/usr/bin/env python3
+# Date of latest revision:      06/19/2024
+# Purpose:                      The script detects SQL Injection vulnerabilities in web forms by submitting SQL payloads and analyzing the response for common SQL error messages.
+# Source1:                      https://thepythoncode.com/article/sql-injection-vulnerability-detector-in-python
+# Source2:                      https://github.com/codefellows/seattle-cybersecurity-401d12/blob/94b03a684510d5e7a1df119d65c1139751492c26/class-38/challenges/DEMO.md
 
 # Import libraries
 import requests
@@ -17,7 +15,7 @@ from urllib.parse import urljoin
 
 ### Function Explanation ###
 ### This function extracts all HTML forms from a given web page. ###
-### It is essential for identifying potential points for user input, which may be vulnerable to XSS attacks. ###
+### It is essential for identifying potential points for user input, which may be vulnerable to SQL Injection attacks. ###
 def get_all_forms(url):
     soup = bs(requests.get(url).content, "html.parser")
     return soup.find_all("form")
@@ -42,7 +40,7 @@ def get_form_details(form):
 ### Function Explanation ###
 ### This function submits a form with a given payload to a target URL. ###
 ### It constructs the form data with the payload and submits it using the appropriate HTTP method (GET or POST). ###
-### This step is crucial for testing if the payload triggers any XSS vulnerabilities. ###
+### This step is crucial for testing if the payload triggers any SQL Injection vulnerabilities. ###
 def submit_form(form_details, url, value):
     target_url = urljoin(url, form_details["action"])
     inputs = form_details["inputs"]
@@ -61,18 +59,25 @@ def submit_form(form_details, url, value):
         return requests.get(target_url, params=data)
 
 ### Function Explanation ###
-### This function scans a given URL for XSS vulnerabilities by submitting a JavaScript payload to all detected forms. ###
-### It checks the response for the presence of the payload to determine if an XSS vulnerability exists. ###
-def scan_xss(url):
+### This function scans a given URL for SQL Injection vulnerabilities by submitting SQL payloads to all detected forms. ###
+### It checks the response for common SQL error messages to determine if an SQL Injection vulnerability exists. ###
+def scan_sql_injection(url):
     forms = get_all_forms(url)
     print(f"[+] Detected {len(forms)} forms on {url}.")
-    js_script = "<script>alert('XSS')</script>"  # The JavaScript payload used to test for XSS vulnerabilities
+    sql_payload = "' OR '1'='1"
     is_vulnerable = False
     for form in forms:
         form_details = get_form_details(form)
-        content = submit_form(form_details, url, js_script).content.decode()
-        if js_script in content:
-            print(f"[+] XSS Detected on {url}")
+        content = submit_form(form_details, url, sql_payload).content.decode()
+        # Checking for common SQL error messages in the response
+        errors = [
+            "you have an error in your sql syntax;",
+            "warning: mysql",
+            "unclosed quotation mark after the character string",
+            "quoted string not properly terminated"
+        ]
+        if any(error in content.lower() for error in errors):
+            print(f"[+] SQL Injection Detected on {url}")
             print(f"[*] Form details:")
             pprint(form_details)
             is_vulnerable = True
@@ -82,11 +87,11 @@ def scan_xss(url):
 
 ### Main Function Explanation ###
 ### The main function serves as the entry point for the script execution. ###
-### It prompts the user for a URL, scans the URL for XSS vulnerabilities, and prints the results. ###
-### This function ensures the script runs in a structured manner, prompting user input and invoking the scan_xss function. ###
+### It prompts the user for a URL, scans the URL for SQL Injection vulnerabilities, and prints the results. ###
+### This function ensures the script runs in a structured manner, prompting user input and invoking the scan_sql_injection function. ###
 if __name__ == "__main__":
-    url = input("Enter a URL to test for XSS:") 
-    print(scan_xss(url))
+    url = input("Enter a URL to test for SQL Injection:") 
+    print(scan_sql_injection(url))
 
-### TODO: Test this script against one XSS-positive target and one XSS-negative target
+### TODO: Test this script against one SQL Injection-positive target and one SQL Injection-negative target
 ### TODO: Paste the outputs here as comments in this script, clearly indicating which is positive detection and which is negative detection
